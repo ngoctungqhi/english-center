@@ -10,6 +10,7 @@ import onlineImage from "../assets/Online_English_learning_036d4bf1.png";
 import testPrepImage from "../assets/English_test_preparation_9f414785.png";
 import vocabularyImage from "../assets/English_vocabulary_learning_materials_2ec0d6bd.png";
 import multiculturalImage from "../assets/Multicultural_language_exchange_f692033d.png";
+import coursesHero from "../assets/Courses_page_hero_background_813fd7a2.png";
 
 const allCourses = [
   {
@@ -140,12 +141,20 @@ export default function Courses() {
 
   return (
     <div>
-      <section className="py-16 md:py-20 bg-card">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={coursesHero}
+            alt="English courses classroom"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6">
             Our Courses
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Comprehensive English programs designed for every skill level and learning goal
           </p>
         </div>

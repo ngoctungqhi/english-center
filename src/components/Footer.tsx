@@ -8,8 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-xl font-serif font-bold text-primary">Excel</span>
-              <span className="text-xl font-serif font-bold">English</span>
+              <span className="text-xl font-serif font-bold text-primary">English</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Transform your English skills with expert instructors and proven teaching methods.
@@ -30,10 +29,10 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-base mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link href="/about" className="text-sm text-muted-foreground hover:text-foreground" data-testid="link-footer-about">About Us</Link></li>
-              <li><Link href="/courses" className="text-sm text-muted-foreground hover:text-foreground" data-testid="link-footer-courses">Our Courses</Link></li>
-              <li><Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground" data-testid="link-footer-blog">Blog</Link></li>
-              <li><Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground" data-testid="link-footer-contact">Contact</Link></li>
+              <li><Link href="/about" className="nav-link text-sm text-muted-foreground hover:text-foreground" data-testid="link-footer-about">About Us</Link></li>
+              <li><Link href="/courses" className="nav-link text-sm text-muted-foreground hover:text-foreground" data-testid="link-footer-courses">Our Courses</Link></li>
+              <li><Link href="/blog" className="nav-link text-sm text-muted-foreground hover:text-foreground" data-testid="link-footer-blog">Blog</Link></li>
+              <li><Link href="/contact" className="nav-link text-sm text-muted-foreground hover:text-foreground" data-testid="link-footer-contact">Contact</Link></li>
             </ul>
           </div>
 

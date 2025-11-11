@@ -43,19 +43,20 @@ export default function About() {
 
   return (
     <div>
-      <section className="relative py-20 md:py-28 overflow-hidden bg-card">
-        <div className="absolute inset-0 z-0 opacity-20">
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
           <img
             src={teamImage}
             alt="Excel English teaching team"
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif mb-6">
+       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
+          <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6">
             About Excel English Academy
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+         <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Empowering students worldwide to achieve fluency and confidence in English through innovative teaching and personalized support.
           </p>
         </div>
@@ -121,28 +122,45 @@ export default function About() {
 
       <section className="py-16 md:py-24 bg-card">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-serif mb-4">Our Journey</h2>
             <p className="text-muted-foreground text-lg">
               Milestones that shaped our academy
             </p>
           </div>
-          <div className="space-y-6">
+          <div className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-primary/50 via-primary to-primary/50 hidden md:block" />
+            
             {milestones.map((milestone, index) => (
               <div
                 key={index}
-                className="flex items-start gap-4 group"
+                className={`relative flex items-center mb-12 last:mb-0 ${
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                }`}
                 data-testid={`milestone-${index}`}
               >
-                <div className="w-24 flex-shrink-0">
-                  <span className="text-2xl font-bold text-primary">{milestone.year}</span>
+                {/* Content Card */}
+                <div className="w-full md:w-5/12 md:px-6">
+                  <Card className="hover-elevate transition-all duration-300 hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="text-3xl font-bold text-primary mb-3 font-serif">
+                        {milestone.year}
+                      </div>
+                      <p className="text-lg font-medium leading-relaxed">
+                        {milestone.event}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </div>
-                <div className="flex-1">
-                  <div className="h-full pl-6 border-l-2 border-border pb-6">
-                    <div className="bg-primary w-3 h-3 rounded-full -ml-[25px] mb-2" />
-                    <p className="text-lg font-medium">{milestone.event}</p>
-                  </div>
+
+                {/* Center dot */}
+                <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center">
+                  <div className="w-4 h-4 bg-primary rounded-full ring-4 ring-card shadow-lg z-10 transition-transform hover:scale-125" />
                 </div>
+
+                {/* Spacer for alternating layout */}
+                <div className="hidden md:block w-5/12" />
               </div>
             ))}
           </div>

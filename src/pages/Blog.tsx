@@ -10,6 +10,7 @@ import blog3 from "../assets/English_course_achievement_celebration_30ed3251.png
 import blog4 from "../assets/Conversation_practice_group_session_d843f581.png";
 import blog5 from "../assets/English_grammar_study_materials_ec2e0868.png";
 import blog6 from "../assets/Business_English_presentation_b1f51fce.png";
+import blogHero from "../assets/Blog_page_hero_background_b1bfed85.png";
 
 const allPosts = [
   {
@@ -97,13 +98,21 @@ export default function Blog() {
 
   return (
     <div>
-      <section className="py-16 md:py-20 bg-card">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-8">
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={blogHero}
+            alt="English learning blog"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="text-center mb-8 text-white">
             <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6">
               English Learning Blog
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
               Tips, insights, and stories to support your English learning journey
             </p>
           </div>

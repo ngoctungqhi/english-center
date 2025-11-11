@@ -7,6 +7,7 @@ import { Label } from "../components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useToast } from "../hooks/use-toast";
+import contactHero from "../assets/Contact_page_hero_background_25142a71.png";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -30,12 +31,20 @@ export default function Contact() {
 
   return (
     <div>
-      <section className="py-16 md:py-20 bg-card">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={contactHero}
+            alt="Contact Excel English Academy"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6">
             Contact Us
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Get in touch with us for course inquiries, consultations, or any questions about learning English
           </p>
         </div>

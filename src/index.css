@@ -285,4 +285,31 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
   }
+
+  .nav-link {
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: hsl(var(--primary) / var(--tw-text-opacity, 1));
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+      width: 100%;
+  }
+
+  .nav-link.active {
+    color: hsl(var(--primary) / var(--tw-text-opacity, 1));
+  }
+
 }

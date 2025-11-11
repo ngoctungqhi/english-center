@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "../components/ui/button";
 import { Menu, X } from "lucide-react";
+import { cn } from "../lib/utils";
+import Logo from "../assets/logo.png";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -20,21 +22,15 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <Link href="/" data-testid="link-home">
-            <div className="flex items-center gap-2 hover-elevate active-elevate-2 rounded-md px-3 py-2 -ml-3">
-              <span className="text-2xl font-serif font-bold text-primary">Excel</span>
-              <span className="text-2xl font-serif font-bold">English</span>
-            </div>
+              <img src={Logo} alt="English Logo" className="w-12 h-12" />
           </Link>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-1 space-x-8">
             {navItems.map((item) => (
-              <Link key={item.path} href={item.path} data-testid={`link-${item.label.toLowerCase()}`}>
-                <Button
-                  variant={location === item.path ? "secondary" : "ghost"}
-                  className="text-base"
-                >
-                  {item.label}
-                </Button>
+              <Link key={item.path} href={item.path} data-testid={`link-${item.label.toLowerCase()}`} className={cn("nav-link text-gray-700 text-base hover:text-primary transition-colors duration-300", {
+                "active": location === item.path,
+              })}>
+                {item.label}
               </Link>
             ))}
           </div>
@@ -55,17 +51,13 @@ export default function Navigation() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-2">
+          <div className="md:hidden py-4 space-y-2 flex flex-col">
             {navItems.map((item) => (
-              <Link key={item.path} href={item.path}>
-                <Button
-                  variant={location === item.path ? "secondary" : "ghost"}
-                  className="w-full justify-start text-base"
-                  onClick={() => setMobileMenuOpen(false)}
-                  data-testid={`link-mobile-${item.label.toLowerCase()}`}
-                >
-                  {item.label}
-                </Button>
+              <Link key={item.path} href={item.path} className={cn("nav-link text-gray-700 text-base hover:text-primary transition-colors duration-300 max-w-fit", {
+                "active": location === item.path,
+              })}
+              >
+                 {item.label}
               </Link>
             ))}
             <Link href="/contact">
